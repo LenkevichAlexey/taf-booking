@@ -9,56 +9,59 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class DominosTest {
-    DominosPage dominosPage = new DominosPage();
     ChromeDriver driver;
+    DominosPage dominosPage;
+    Until until;
 
     @BeforeEach
     public void warmUp() {
         driver = new ChromeDriver();
         driver.get("https://dominos.by/");
         driver.manage().window().maximize();
+        dominosPage = new DominosPage(driver);
     }
 
     @Test
     public void testIncorrectEmailAndPassword() {
 
-        WebElement buttonClose = driver.findElement(By.cssSelector(dominosPage.buttonCloseCssSelector));
-        buttonClose.click();
-
-        WebElement buttonSignIn = driver.findElement(By.xpath(dominosPage.buttonSignInXpath));
-        buttonSignIn.click();
-
-        WebElement inputEmail = driver.findElement(By.xpath(dominosPage.inputEmailXpath));
-        inputEmail.sendKeys("test@test.com");
-
-        WebElement inputPassword = driver.findElement(By.xpath(dominosPage.inputPasswordXpath));
-        inputPassword.sendKeys("Qwerty123!");
-
-        WebElement buttonLogin = driver.findElement(By.xpath(dominosPage.buttonLoginXpath));
-        buttonLogin.click();
+        dominosPage.clickCloseButton();
+        dominosPage.clickSignInButton();
+        dominosPage.sendKeysInputEmailField(until.generateEmail());
+        dominosPage.sendKeysInputPasswordField(until.generatePassword());
+        dominosPage.clickLogInButton();
     }
 
     @Test
     public void testCorrectEmailAndPassword() {
 
-        WebElement buttonClose = driver.findElement(By.cssSelector(dominosPage.buttonCloseCssSelector));
-        buttonClose.click();
+        dominosPage.clickCloseButton();
+        dominosPage.clickSignInButton();
+        dominosPage.sendKeysInputEmailField("test@gmail.com");
+        dominosPage.sendKeysInputPasswordField("Qwerty123!");
+        dominosPage.clickLogInButton();
+    }
 
-        WebElement buttonSignIn = driver.findElement(By.xpath(dominosPage.buttonSignInXpath));
-        buttonSignIn.click();
+    @Test
+    public void testIncorrectEmailAndEmptyPassword() {
 
-        WebElement inputEmail = driver.findElement(By.xpath(dominosPage.inputEmailXpath));
-        inputEmail.sendKeys("test@gmail.com");
+        dominosPage.clickCloseButton();
+        dominosPage.clickSignInButton();
+        dominosPage.sendKeysInputEmailField(until.generateEmail());
+        dominosPage.clickLogInButton();
+    }
 
-        WebElement inputPassword = driver.findElement(By.xpath(dominosPage.inputPasswordXpath));
-        inputPassword.sendKeys("Qwerty123!");
+    @Test
+    public void testEmptyEmailAndIncorrectPassword() {
 
-        WebElement buttonLogin = driver.findElement(By.xpath(dominosPage.buttonLoginXpath));
-        buttonLogin.click();
+        dominosPage.clickCloseButton();
+        dominosPage.clickSignInButton();
+        dominosPage.sendKeysInputPasswordField(until.generatePassword());
+        dominosPage.clickLogInButton();
     }
 
     @AfterEach
-    public void tearsDown() {
+    public void tearsDown()
+    {
         driver.quit();
     }
 }
