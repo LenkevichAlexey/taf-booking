@@ -11,6 +11,7 @@ public class PizzatempoTest {
     ChromeDriver driver;
     PizzatempoPage pizzatempoPage;
     Until until;
+    PizzatempoStep pizzatempoStep;
 
 
     @BeforeEach
@@ -19,57 +20,51 @@ public class PizzatempoTest {
         driver.get("https://www.pizzatempo.by/");
         driver.manage().window().maximize();
         pizzatempoPage = new PizzatempoPage(driver);
+        pizzatempoStep = new PizzatempoStep(driver);
+
     }
 
     @Test
-    public void testEmptyEmailAndPassword() {
+    public void testEmptyEmailAndEmptyPassword() {
 
-        pizzatempoPage.clickLoginButton();
+        pizzatempoStep.clickSubmitButton();
     }
 
     @Test
     public void testIncorrectEmail() {
-        pizzatempoPage.sendKeysInputEmailField(until.generateEmail());
-        pizzatempoPage.clickLoginButton();
+
+        pizzatempoStep.fillIncorrectEmailAndSubmitButton("until.generateEmail()");
     }
 
     @Test
     public void testIncorrectPassword() {
-        pizzatempoPage.sendKeysInputEmailField(until.generatePassword());
-        pizzatempoPage.clickLoginButton();
+        pizzatempoStep.fillIncorrectPasswordAndSubmitButton(until.generatePassword());
     }
 
     @Test
     public void testEmptyEmailAndCorrectPassword() {
 
-        pizzatempoPage.sendKeysInputPasswordField("Qwerty123!");
-        pizzatempoPage.clickLoginButton();
-
+        pizzatempoStep.fillEmptyEmailAndCorrectPassword("Qwerty123!");
     }
 
     @Test
     public void testCorrectEmailAndEmptyPassword() {
 
-        pizzatempoPage.sendKeysInputEmailField("test@gmail.com");
-        pizzatempoPage.clickLoginButton();
+        pizzatempoStep.fillCorrectEmailAndEmptyPassword("test@gmail.com");
 
     }
 
     @Test
-    public void testCorrectEmailAndPassword() {
+    public void testCorrectEmailAndCorrectPassword() {
 
-        pizzatempoPage.sendKeysInputEmailField("test@gmail.com");
-        pizzatempoPage.sendKeysInputPasswordField("Qwerty123!");
-        pizzatempoPage.clickLoginButton();
+        pizzatempoStep.fillCorrectEmailAndCorrectPassword("test@gmail.com", "Qwerty123!");
 
     }
 
     @Test
-    public void testInCorrectEmailAndPassword() {
+    public void testIncorrectEmailAndIncorrectPassword() {
 
-        pizzatempoPage.sendKeysInputEmailField(until.generateEmail());
-        pizzatempoPage.sendKeysInputPasswordField(until.generatePassword());
-        pizzatempoPage.clickLoginButton();
+        pizzatempoStep.fillIncorrectEmailAndIncorrectPassword(until.generateEmail(), until.generatePassword());
 
     }
 

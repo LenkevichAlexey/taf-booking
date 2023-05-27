@@ -6,26 +6,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PizzatempoPage {
     ChromeDriver driver;
-    String inputEmailXpath = "/html/body/div/div[1]/form/p[1]/input";
-    String inputPasswordXpath = "/html/body/div/div[1]/form/p[2]/input[1]";
-    String buttonLoginXpath = "/html/body/div/div[1]/form/p[2]/input[2]";
+    String inputEmail = "astroauth_login";
+    String inputPassword = "astroauth_pass";
+    String buttonSubmit = "astroauth_submit";
 
     public PizzatempoPage(ChromeDriver newDriver) {
         driver = newDriver;
     }
 
-    public void clickLoginButton(){
-        WebElement buttonLogin = driver.findElement(By.xpath(buttonLoginXpath));
+    public void clickLoginButton() {
+        WebElement buttonLogin = driver.findElement(By.name(buttonSubmit));
         buttonLogin.click();
     }
 
     public void sendKeysInputEmailField(String str) {
-        WebElement emailInputEmailField = driver.findElement(By.xpath(inputEmailXpath));
-        emailInputEmailField.sendKeys(str);
+        WebElement inputEmailField = driver.findElement(By.name(inputEmail));
+        inputEmailField.sendKeys(str);
     }
 
     public void sendKeysInputPasswordField(String str) {
-        WebElement emailInputPasswordField = driver.findElement(By.xpath(inputPasswordXpath));
-        emailInputPasswordField.sendKeys(str);
+        WebElement inputPasswordField = driver.findElement(By.name(inputPassword));
+        inputPasswordField.sendKeys(str);
     }
 }

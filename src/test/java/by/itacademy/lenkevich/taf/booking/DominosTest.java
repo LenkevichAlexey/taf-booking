@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DominosTest {
     ChromeDriver driver;
     DominosPage dominosPage;
+    DominosStep dominosStep;
     Until until;
 
     @BeforeEach
@@ -19,49 +20,39 @@ public class DominosTest {
         driver.get("https://dominos.by/");
         driver.manage().window().maximize();
         dominosPage = new DominosPage(driver);
+        dominosStep = new DominosStep(driver);
     }
 
     @Test
-    public void testIncorrectEmailAndPassword() {
+    public void testIncorrectEmailAndIncorrectPassword() {
 
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputEmailField(until.generateEmail());
-        dominosPage.sendKeysInputPasswordField(until.generatePassword());
-        dominosPage.clickLogInButton();
+        dominosStep.fillIncorrectEmailAndIncorrectPassword(until.generateEmail(), until.generatePassword());
+
     }
 
     @Test
-    public void testCorrectEmailAndPassword() {
+    public void testCorrectEmailAndCorrectPassword() {
 
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputEmailField("test@gmail.com");
-        dominosPage.sendKeysInputPasswordField("Qwerty123!");
-        dominosPage.clickLogInButton();
+        dominosStep.fillCorrectEmailAndCorrectPassword("test@gmail.com", "Qwerty123!");
+
     }
 
     @Test
     public void testIncorrectEmailAndEmptyPassword() {
 
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputEmailField(until.generateEmail());
-        dominosPage.clickLogInButton();
+        dominosStep.fillIncorrectEmailAndEmptyPassword(until.generateEmail());
+
     }
 
     @Test
     public void testEmptyEmailAndIncorrectPassword() {
 
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputPasswordField(until.generatePassword());
-        dominosPage.clickLogInButton();
+        dominosStep.fillEmptyEmailAndInccorectPassword(until.generatePassword());
+
     }
 
     @AfterEach
-    public void tearsDown()
-    {
+    public void tearsDown() {
         driver.quit();
     }
 }
