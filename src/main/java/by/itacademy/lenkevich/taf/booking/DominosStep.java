@@ -10,7 +10,7 @@ public class DominosStep {
         dominosPage = new DominosPage(driver);
     }
 
-    public void fillIncorrectEmailAndIncorrectPassword(String email, String password) {
+    public void fillIncorrectEmailAndAnyPassword(String email, String password) {
         dominosPage.clickCloseButton();
         dominosPage.clickSignInButton();
         dominosPage.sendKeysInputEmailField(email);
@@ -18,7 +18,7 @@ public class DominosStep {
         dominosPage.clickLogInButton();
     }
 
-    public void fillCorrectEmailAndCorrectPassword(String email, String password) {
+    public void fillCorrectEmailAndAnyPassword(String email, String password) {
         dominosPage.clickCloseButton();
         dominosPage.clickSignInButton();
         dominosPage.sendKeysInputEmailField(email);

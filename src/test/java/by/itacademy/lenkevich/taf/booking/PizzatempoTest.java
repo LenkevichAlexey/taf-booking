@@ -3,14 +3,12 @@ package by.itacademy.lenkevich.taf.booking;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PizzatempoTest {
     ChromeDriver driver;
     PizzatempoPage pizzatempoPage;
-    Until until;
+    Util util;
     PizzatempoStep pizzatempoStep;
 
 
@@ -33,38 +31,38 @@ public class PizzatempoTest {
     @Test
     public void testIncorrectEmail() {
 
-        pizzatempoStep.fillIncorrectEmailAndSubmitButton("until.generateEmail()");
+        pizzatempoStep.fillIncorrectEmailAndSubmitButton(util.generateInvalidEmail());
     }
 
     @Test
-    public void testIncorrectPassword() {
-        pizzatempoStep.fillIncorrectPasswordAndSubmitButton(until.generatePassword());
+    public void testAnyPassword() {
+        pizzatempoStep.fillAnyPasswordAndSubmitButton(util.generatePassword());
     }
 
     @Test
-    public void testEmptyEmailAndCorrectPassword() {
+    public void testEmptyEmailAndAnyPassword() {
 
-        pizzatempoStep.fillEmptyEmailAndCorrectPassword("Qwerty123!");
+        pizzatempoStep.fillEmptyEmailAndAnyPassword(util.generatePassword());
     }
 
     @Test
     public void testCorrectEmailAndEmptyPassword() {
 
-        pizzatempoStep.fillCorrectEmailAndEmptyPassword("test@gmail.com");
+        pizzatempoStep.fillCorrectEmailAndEmptyPassword(util.generateEmail());
 
     }
 
     @Test
-    public void testCorrectEmailAndCorrectPassword() {
+    public void testCorrectEmailAndAnyPassword() {
 
-        pizzatempoStep.fillCorrectEmailAndCorrectPassword("test@gmail.com", "Qwerty123!");
+        pizzatempoStep.fillCorrectEmailAndAnyPassword(util.generateEmail(), util.generatePassword());
 
     }
 
     @Test
-    public void testIncorrectEmailAndIncorrectPassword() {
+    public void testIncorrectEmailAndAnyPassword() {
 
-        pizzatempoStep.fillIncorrectEmailAndIncorrectPassword(until.generateEmail(), until.generatePassword());
+        pizzatempoStep.fillIncorrectEmailAndAnyPassword(util.generateInvalidEmail(), util.generatePassword());
 
     }
 

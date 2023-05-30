@@ -3,8 +3,6 @@ package by.itacademy.lenkevich.taf.booking;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
@@ -12,7 +10,7 @@ public class DominosTest {
     ChromeDriver driver;
     DominosPage dominosPage;
     DominosStep dominosStep;
-    Until until;
+    Util util;
 
     @BeforeEach
     public void warmUp() {
@@ -24,30 +22,30 @@ public class DominosTest {
     }
 
     @Test
-    public void testIncorrectEmailAndIncorrectPassword() {
+    public void testIncorrectEmailAndAnyPassword() {
 
-        dominosStep.fillIncorrectEmailAndIncorrectPassword(until.generateEmail(), until.generatePassword());
+        dominosStep.fillIncorrectEmailAndAnyPassword(util.generateInvalidEmail(), util.generatePassword());
 
     }
 
     @Test
-    public void testCorrectEmailAndCorrectPassword() {
+    public void testCorrectEmailAndAnyPassword() {
 
-        dominosStep.fillCorrectEmailAndCorrectPassword("test@gmail.com", "Qwerty123!");
+        dominosStep.fillCorrectEmailAndAnyPassword(util.generateEmail(), util.generatePassword());
 
     }
 
     @Test
     public void testIncorrectEmailAndEmptyPassword() {
 
-        dominosStep.fillIncorrectEmailAndEmptyPassword(until.generateEmail());
+        dominosStep.fillIncorrectEmailAndEmptyPassword(util.generateInvalidEmail());
 
     }
 
     @Test
-    public void testEmptyEmailAndIncorrectPassword() {
+    public void testEmptyEmailAndAnyPassword() {
 
-        dominosStep.fillEmptyEmailAndInccorectPassword(until.generatePassword());
+        dominosStep.fillEmptyEmailAndInccorectPassword(util.generatePassword());
 
     }
 
