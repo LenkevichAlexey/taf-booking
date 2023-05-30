@@ -15,7 +15,7 @@ public class Util {
             int j = (int) Math.floor(Math.random() * letter.length);
             result = result.concat(letter[j]);
         }
-        return (result + "@gmail.com");
+        return (result + "@test.com");
     }
 
 
