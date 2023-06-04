@@ -1,4 +1,4 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ public class DominosPage {
     String inputEmail = "email";
     String inputPassword = "password";
     String buttonLoginXpath = "/html/body/div[4]/div[2]/div/div/div/div[2]/div[2]/div/form/div/button/span/span[2]";
+    String textResultLocator = "/html/body/div[5]/div[2]/div[1]/div";
 
     public DominosPage(ChromeDriver newDriver) {
 
@@ -40,6 +41,11 @@ public class DominosPage {
     public void clickLogInButton() {
         WebElement buttonLogIn = driver.findElement(By.xpath(buttonLoginXpath));
         buttonLogIn.click();
+    }
+
+    public String getResultText() {
+        WebElement resultField = driver.findElement(By.xpath(textResultLocator));
+        return resultField.getText();
     }
 
 }

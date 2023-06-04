@@ -1,4 +1,4 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,6 +9,7 @@ public class PizzatempoPage {
     String inputEmail = "astroauth_login";
     String inputPassword = "astroauth_pass";
     String buttonSubmit = "astroauth_submit";
+    String resultLocator = "//*[@id=\"alert\"]/div[2]/div[2]";
 
     public PizzatempoPage(ChromeDriver newDriver) {
         driver = newDriver;
@@ -27,5 +28,10 @@ public class PizzatempoPage {
     public void sendKeysInputPasswordField(String str) {
         WebElement inputPasswordField = driver.findElement(By.name(inputPassword));
         inputPasswordField.sendKeys(str);
+    }
+
+    public String getResultText(){
+        WebElement resultField = driver.findElement(By.xpath(resultLocator));
+        return resultField.getText();
     }
 }

@@ -1,5 +1,6 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.steps;
 
+import by.itacademy.lenkevich.taf.booking.pages.DominosPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DominosStep {

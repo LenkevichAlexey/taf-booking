@@ -1,5 +1,6 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.tests;
 
+import by.itacademy.lenkevich.taf.booking.pages.BookingPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

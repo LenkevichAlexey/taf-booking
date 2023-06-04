@@ -1,6 +1,10 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.tests;
 
+import by.itacademy.lenkevich.taf.booking.pages.PizzatempoPage;
+import by.itacademy.lenkevich.taf.booking.steps.PizzatempoStep;
+import by.itacademy.lenkevich.taf.booking.utils.Util;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,23 +27,6 @@ public class PizzatempoTest {
     }
 
     @Test
-    public void testEmptyEmailAndEmptyPassword() {
-
-        pizzatempoStep.clickSubmitButton();
-    }
-
-    @Test
-    public void testIncorrectEmail() {
-
-        pizzatempoStep.fillIncorrectEmailAndSubmitButton(util.generateInvalidEmail());
-    }
-
-    @Test
-    public void testAnyPassword() {
-        pizzatempoStep.fillAnyPasswordAndSubmitButton(util.generatePassword());
-    }
-
-    @Test
     public void testEmptyEmailAndAnyPassword() {
 
         pizzatempoStep.fillEmptyEmailAndAnyPassword(util.generatePassword());
@@ -56,13 +43,18 @@ public class PizzatempoTest {
     public void testCorrectEmailAndAnyPassword() {
 
         pizzatempoStep.fillCorrectEmailAndAnyPassword(util.generateEmail(), util.generatePassword());
-
+        String actualResult = pizzatempoPage.getResultText();
+        Assertions.assertEquals(actualResult, "Неверно указано имя пользователя или пароль.\n" +
+                "Ok");
     }
 
     @Test
     public void testIncorrectEmailAndAnyPassword() {
 
         pizzatempoStep.fillIncorrectEmailAndAnyPassword(util.generateInvalidEmail(), util.generatePassword());
+        String actualResult = pizzatempoPage.getResultText();
+        Assertions.assertEquals(actualResult, "Неверно указано имя пользователя или пароль.\n" +
+                "Ok");
 
     }
 

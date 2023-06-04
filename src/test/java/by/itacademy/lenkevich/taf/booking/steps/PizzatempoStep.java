@@ -1,5 +1,6 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.steps;
 
+import by.itacademy.lenkevich.taf.booking.pages.PizzatempoPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PizzatempoStep {
@@ -8,21 +9,6 @@ public class PizzatempoStep {
     public PizzatempoStep(ChromeDriver driver) {
 
         pizzatempoPage = new PizzatempoPage(driver);
-    }
-
-    public void clickSubmitButton() {
-
-        pizzatempoPage.clickLoginButton();
-    }
-
-    public void fillIncorrectEmailAndSubmitButton(String email) {
-        pizzatempoPage.sendKeysInputEmailField(email);
-        pizzatempoPage.clickLoginButton();
-    }
-
-    public void fillAnyPasswordAndSubmitButton(String password) {
-        pizzatempoPage.sendKeysInputPasswordField(password);
-        pizzatempoPage.clickLoginButton();
     }
 
     public void fillEmptyEmailAndAnyPassword(String password) {

@@ -1,4 +1,4 @@
-package by.itacademy.lenkevich.taf.booking;
+package by.itacademy.lenkevich.taf.booking.utils;
 
 
 import com.github.javafaker.Faker;
