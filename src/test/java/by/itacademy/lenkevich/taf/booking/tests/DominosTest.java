@@ -16,7 +16,7 @@ public class DominosTest {
     ChromeDriver driver;
     DominosPage dominosPage;
     DominosStep dominosStep;
-    Util util;
+
 
     @BeforeEach
     public void warmUp() {
@@ -31,31 +31,31 @@ public class DominosTest {
     @Test
     public void testIncorrectEmailAndAnyPassword() {
 
-        dominosStep.fillIncorrectEmailAndAnyPassword(util.generateInvalidEmail(), util.generatePassword());
+        dominosStep.fillIncorrectEmailAndAnyPassword(Util.generateInvalidEmail(), Util.generatePassword());
         String actualResult = dominosPage.getResultText();
-        Assertions.assertEquals(actualResult, "Неверный логин или пароль");
+        Assertions.assertEquals("Неверный логин или пароль", actualResult);
     }
 
     @Test
     public void testCorrectEmailAndAnyPassword() {
 
-        dominosStep.fillCorrectEmailAndAnyPassword(util.generateEmail(), util.generatePassword());
+        dominosStep.fillCorrectEmailAndAnyPassword(Util.generateEmail(), Util.generatePassword());
         String actualResult = dominosPage.getResultText();
-        Assertions.assertEquals(actualResult, "Неверный логин или пароль");
+        Assertions.assertEquals("Неверный логин или пароль", actualResult);
 
     }
 
     @Test
     public void testIncorrectEmailAndEmptyPassword() {
 
-        dominosStep.fillIncorrectEmailAndEmptyPassword(util.generateInvalidEmail());
+        dominosStep.fillIncorrectEmailAndEmptyPassword(Util.generateInvalidEmail());
 
     }
 
     @Test
     public void testEmptyEmailAndAnyPassword() {
 
-        dominosStep.fillEmptyEmailAndInccorectPassword(util.generatePassword());
+        dominosStep.fillEmptyEmailAndInccorectPassword(Util.generatePassword());
 
     }
 

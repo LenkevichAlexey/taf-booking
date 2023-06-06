@@ -12,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class PizzatempoTest {
     ChromeDriver driver;
     PizzatempoPage pizzatempoPage;
-    Util util;
     PizzatempoStep pizzatempoStep;
 
 
@@ -29,32 +28,32 @@ public class PizzatempoTest {
     @Test
     public void testEmptyEmailAndAnyPassword() {
 
-        pizzatempoStep.fillEmptyEmailAndAnyPassword(util.generatePassword());
+        pizzatempoStep.fillEmptyEmailAndAnyPassword(Util.generatePassword());
     }
 
     @Test
     public void testCorrectEmailAndEmptyPassword() {
 
-        pizzatempoStep.fillCorrectEmailAndEmptyPassword(util.generateEmail());
+        pizzatempoStep.fillCorrectEmailAndEmptyPassword(Util.generateEmail());
 
     }
 
     @Test
     public void testCorrectEmailAndAnyPassword() {
 
-        pizzatempoStep.fillCorrectEmailAndAnyPassword(util.generateEmail(), util.generatePassword());
+        pizzatempoStep.fillCorrectEmailAndAnyPassword(Util.generateEmail(), Util.generatePassword());
         String actualResult = pizzatempoPage.getResultText();
-        Assertions.assertEquals(actualResult, "Неверно указано имя пользователя или пароль.\n" +
-                "Ok");
+        Assertions.assertEquals("Неверно указано имя пользователя или пароль.\n" +
+                "Ok", actualResult);
     }
 
     @Test
     public void testIncorrectEmailAndAnyPassword() {
 
-        pizzatempoStep.fillIncorrectEmailAndAnyPassword(util.generateInvalidEmail(), util.generatePassword());
+        pizzatempoStep.fillIncorrectEmailAndAnyPassword(Util.generateInvalidEmail(), Util.generatePassword());
         String actualResult = pizzatempoPage.getResultText();
-        Assertions.assertEquals(actualResult, "Неверно указано имя пользователя или пароль.\n" +
-                "Ok");
+        Assertions.assertEquals("Неверно указано имя пользователя или пароль.\n" +
+                "Ok", actualResult);
 
     }
 
