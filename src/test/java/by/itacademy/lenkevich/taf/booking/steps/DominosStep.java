@@ -12,33 +12,37 @@ public class DominosStep {
     }
 
     public void fillIncorrectEmailAndAnyPassword(String email, String password) {
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputEmailField(email);
-        dominosPage.sendKeysInputPasswordField(password);
-        dominosPage.clickLogInButton();
+        dominosPage
+                .clickCloseButton()
+                .clickSignInButton()
+                .sendKeysInputEmailField(email)
+                .sendKeysInputPasswordField(password)
+                .clickLogInButton();
     }
 
     public void fillCorrectEmailAndAnyPassword(String email, String password) {
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputEmailField(email);
-        dominosPage.sendKeysInputPasswordField(password);
-        dominosPage.clickLogInButton();
+        dominosPage
+                .clickCloseButton()
+                .clickSignInButton()
+                .sendKeysInputEmailField(email)
+                .sendKeysInputPasswordField(password)
+                .clickLogInButton();
     }
 
     public void fillIncorrectEmailAndEmptyPassword(String email) {
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputEmailField(email);
-        dominosPage.clickLogInButton();
+        dominosPage
+                .clickCloseButton()
+                .clickSignInButton()
+                .sendKeysInputEmailField(email)
+                .clickLogInButton();
     }
 
     public void fillEmptyEmailAndInccorectPassword(String password) {
-        dominosPage.clickCloseButton();
-        dominosPage.clickSignInButton();
-        dominosPage.sendKeysInputPasswordField(password);
-        dominosPage.clickLogInButton();
+        dominosPage
+                .clickCloseButton()
+                .clickSignInButton()
+                .sendKeysInputPasswordField(password)
+                .clickLogInButton();
     }
 
 }

@@ -18,29 +18,34 @@ public class DominosPage {
         driver = newDriver;
     }
 
-    public void clickCloseButton() {
+    public DominosPage clickCloseButton() {
         WebElement buttonClose = driver.findElement(By.cssSelector(buttonCloseCssSelector));
         buttonClose.click();
+        return this;
     }
 
-    public void clickSignInButton() {
+    public DominosPage clickSignInButton() {
         WebElement buttonSignIn = driver.findElement(By.xpath(buttonSignInXpath));
         buttonSignIn.click();
+        return this;
     }
 
-    public void sendKeysInputEmailField(String str) {
+    public DominosPage sendKeysInputEmailField(String str) {
         WebElement emailInputEmailField = driver.findElement(By.name(inputEmail));
         emailInputEmailField.sendKeys(str);
+        return this;
     }
 
-    public void sendKeysInputPasswordField(String str) {
+    public DominosPage sendKeysInputPasswordField(String str) {
         WebElement emailInputPasswordField = driver.findElement(By.name(inputPassword));
         emailInputPasswordField.sendKeys(str);
+        return this;
     }
 
-    public void clickLogInButton() {
+    public DominosPage clickLogInButton() {
         WebElement buttonLogIn = driver.findElement(By.xpath(buttonLoginXpath));
         buttonLogIn.click();
+        return this;
     }
 
     public String getResultText() {

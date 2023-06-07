@@ -12,25 +12,29 @@ public class PizzatempoStep {
     }
 
     public void fillEmptyEmailAndAnyPassword(String password) {
-        pizzatempoPage.sendKeysInputPasswordField(password);
-        pizzatempoPage.clickLoginButton();
+        pizzatempoPage
+                .sendKeysInputPasswordField(password)
+                .clickLoginButton();
     }
 
     public void fillCorrectEmailAndEmptyPassword(String email) {
-        pizzatempoPage.sendKeysInputEmailField(email);
-        pizzatempoPage.clickLoginButton();
+        pizzatempoPage
+                .sendKeysInputEmailField(email)
+                .clickLoginButton();
     }
 
     public void fillCorrectEmailAndAnyPassword(String email, String password) {
-        pizzatempoPage.sendKeysInputEmailField(email);
-        pizzatempoPage.sendKeysInputPasswordField(password);
-        pizzatempoPage.clickLoginButton();
+        pizzatempoPage
+                .sendKeysInputEmailField(email)
+                .sendKeysInputPasswordField(password)
+                .clickLoginButton();
     }
 
     public void fillIncorrectEmailAndAnyPassword(String email, String password) {
-        pizzatempoPage.sendKeysInputEmailField(email);
-        pizzatempoPage.sendKeysInputPasswordField(password);
-        pizzatempoPage.clickLoginButton();
+        pizzatempoPage
+                .sendKeysInputEmailField(email)
+                .sendKeysInputPasswordField(password)
+                .clickLoginButton();
     }
 
 }

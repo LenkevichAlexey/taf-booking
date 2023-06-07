@@ -15,19 +15,22 @@ public class PizzatempoPage {
         driver = newDriver;
     }
 
-    public void clickLoginButton() {
+    public PizzatempoPage clickLoginButton() {
         WebElement buttonLogin = driver.findElement(By.name(buttonSubmit));
         buttonLogin.click();
+        return this;
     }
 
-    public void sendKeysInputEmailField(String str) {
+    public PizzatempoPage sendKeysInputEmailField(String str) {
         WebElement inputEmailField = driver.findElement(By.name(inputEmail));
         inputEmailField.sendKeys(str);
+        return this;
     }
 
-    public void sendKeysInputPasswordField(String str) {
+    public PizzatempoPage sendKeysInputPasswordField(String str) {
         WebElement inputPasswordField = driver.findElement(By.name(inputPassword));
         inputPasswordField.sendKeys(str);
+        return this;
     }
 
     public String getResultText(){
