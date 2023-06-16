@@ -30,7 +30,7 @@ public class PizzatempoPage {
         return this;
     }
 
-    public String getResultText(){
+    public String getResultText() {
         String resultField = driver.findElement(By.xpath(resultLocator)).getText();
         return resultField;
     }

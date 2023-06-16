@@ -12,21 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 
-public class DominosTest {
-    ChromeDriver driver;
-    DominosPage dominosPage;
-    DominosStep dominosStep;
-
-
-    @BeforeEach
-    public void warmUp() {
-        driver = new ChromeDriver();
-        driver.get("https://dominos.by/");
-        driver.manage().window().maximize();
-        dominosPage = new DominosPage(driver);
-        dominosStep = new DominosStep(driver);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    }
+public class DominosTest extends BaseTestsDominos {
 
     @Test
     public void testIncorrectEmailAndAnyPassword() {
@@ -57,10 +43,5 @@ public class DominosTest {
 
         dominosStep.fillEmptyEmailAndInccorectPassword(Util.generatePassword());
 
-    }
-
-    @AfterEach
-    public void tearsDown() {
-        driver.quit();
     }
 }
