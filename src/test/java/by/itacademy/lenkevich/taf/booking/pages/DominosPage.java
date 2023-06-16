@@ -19,38 +19,33 @@ public class DominosPage {
     }
 
     public DominosPage clickCloseButton() {
-        WebElement buttonClose = driver.findElement(By.cssSelector(buttonCloseCssSelector));
-        buttonClose.click();
+        driver.findElement(By.cssSelector(buttonCloseCssSelector)).click();
         return this;
     }
 
     public DominosPage clickSignInButton() {
-        WebElement buttonSignIn = driver.findElement(By.xpath(buttonSignInXpath));
-        buttonSignIn.click();
+        driver.findElement(By.xpath(buttonSignInXpath)).click();
         return this;
     }
 
     public DominosPage sendKeysInputEmailField(String str) {
-        WebElement emailInputEmailField = driver.findElement(By.name(inputEmail));
-        emailInputEmailField.sendKeys(str);
+        driver.findElement(By.name(inputEmail)).sendKeys(str);
         return this;
     }
 
     public DominosPage sendKeysInputPasswordField(String str) {
-        WebElement emailInputPasswordField = driver.findElement(By.name(inputPassword));
-        emailInputPasswordField.sendKeys(str);
+        driver.findElement(By.name(inputPassword)).sendKeys(str);
         return this;
     }
 
     public DominosPage clickLogInButton() {
-        WebElement buttonLogIn = driver.findElement(By.xpath(buttonLoginXpath));
-        buttonLogIn.click();
+        driver.findElement(By.xpath(buttonLoginXpath)).click();
         return this;
     }
 
     public String getResultText() {
-        WebElement resultField = driver.findElement(By.xpath(textResultLocator));
-        return resultField.getText();
+        String resultField = driver.findElement(By.xpath(textResultLocator)).getText();
+        return resultField;
     }
 
 }

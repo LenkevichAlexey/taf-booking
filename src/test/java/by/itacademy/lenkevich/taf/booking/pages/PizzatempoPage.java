@@ -16,25 +16,22 @@ public class PizzatempoPage {
     }
 
     public PizzatempoPage clickLoginButton() {
-        WebElement buttonLogin = driver.findElement(By.name(buttonSubmit));
-        buttonLogin.click();
+        driver.findElement(By.name(buttonSubmit)).click();
         return this;
     }
 
     public PizzatempoPage sendKeysInputEmailField(String str) {
-        WebElement inputEmailField = driver.findElement(By.name(inputEmail));
-        inputEmailField.sendKeys(str);
+        driver.findElement(By.name(inputEmail)).sendKeys(str);
         return this;
     }
 
     public PizzatempoPage sendKeysInputPasswordField(String str) {
-        WebElement inputPasswordField = driver.findElement(By.name(inputPassword));
-        inputPasswordField.sendKeys(str);
+        driver.findElement(By.name(inputPassword)).sendKeys(str);
         return this;
     }
 
     public String getResultText(){
-        WebElement resultField = driver.findElement(By.xpath(resultLocator));
-        return resultField.getText();
+        String resultField = driver.findElement(By.xpath(resultLocator)).getText();
+        return resultField;
     }
 }

@@ -1,6 +1,6 @@
 package by.itacademy.lenkevich.taf.booking.tests;
 
-import by.itacademy.lenkevich.taf.booking.pages.PizzatempoPage;
+import  by.itacademy.lenkevich.taf.booking.pages.PizzatempoPage;
 import by.itacademy.lenkevich.taf.booking.steps.PizzatempoStep;
 import by.itacademy.lenkevich.taf.booking.utils.Util;
 import org.junit.jupiter.api.AfterEach;
